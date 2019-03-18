@@ -35,10 +35,13 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.3.4",
+    "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
     "jquery": "^3.3.1",
     "mint-ui": "^2.2.13",
     "open-iconic": "git+https://github.com/iconic/open-iconic.git",
+    "vue-axios": "^2.1.4",
+    "vue-resource": "^1.5.1",
     "vue-router": "^3.0.2"
   }
 }
