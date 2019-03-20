@@ -12,30 +12,54 @@
 
 		<!-- 宫格 -->
 		<ul class="mui-table-view mui-grid-view mui-grid-9">
-		    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-		            <img src="../../img/delicious.jpg" alt="">
-		            <div class="mui-media-body">美食</div></a></li>
-		    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+		    	<router-link to="/home/foodlist">
+		    		<img src="../../img/delicious.jpg" alt="">
+		            <div class="mui-media-body">美食</div>
+		    	</router-link>
+		    </li>
+		    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+		    	<a href="#">
 		            <img src="../../img/yexiao.jpg" alt="">
-		            <div class="mui-media-body">夜宵</div></a></li>
-		    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		            <div class="mui-media-body">夜宵</div>
+		        </a>
+		    </li>
+		    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+		    	<a href="#">
 		            <img src="../../img/fruit.jpg" alt="">
-		            <div class="mui-media-body">水果</div></a></li>
-		    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		            <div class="mui-media-body">水果</div>
+		        </a>
+		    </li>
+		    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+		    	<a href="#">
 		            <img src="../../img/healthy.jpg" alt="">
-		            <div class="mui-media-body">医疗健康</div></a></li>
-		    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		            <div class="mui-media-body">医疗健康</div>
+		        </a>
+		    </li>
+		    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+		    	<a href="#">
 		            <img src="../../img/shengxian.jpg" alt="">
-		            <div class="mui-media-body">生鲜</div></a></li>
-		    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		            <div class="mui-media-body">生鲜</div>
+		        </a>
+		    </li>
+		    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+		    	<a href="#">
 		            <img src="../../img/chicken.jpg" alt="">
-		            <div class="mui-media-body">炸鸡炸串</div></a></li>
-		    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		            <div class="mui-media-body">炸鸡炸串</div>
+		        </a>
+		    </li>
+		    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+		    	<a href="#">
 		            <img src="../../img/hamburger.jpg" alt="">
-		            <div class="mui-media-body">汉堡披萨</div></a></li>
-		    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		            <div class="mui-media-body">汉堡披萨</div>
+		        </a>
+		    </li>
+		    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+		    	<a href="#">
 		            <img src="../../img/flower.jpg" alt="">
-		            <div class="mui-media-body">浪漫鲜花</div></a></li>
+		            <div class="mui-media-body">浪漫鲜花</div>
+		        </a>
+		    </li>
 		</ul> 
 	</div>
 </template>
@@ -54,7 +78,7 @@
 		},
 		methods: {
 			getLunbotu() {
-				this.$http.get('http://127.0.0.1:3005/api/getlunbo')
+				this.$http.get('api/getlunbo')
 				.then(response => {
 					if(response.data.status === 0) {
 						// 成功
@@ -72,7 +96,7 @@
 
 <style lang="scss" scoped>
 	.mint-swipe {
-		height: 110px;
+		height: 100px;
 		.mint-swipe-item {
 			img {
 				width: 100%;
