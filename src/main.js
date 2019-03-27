@@ -27,17 +27,30 @@ Vue.prototype.$http = axios
 // 设置请求的根路径
 axios.defaults.baseURL = 'http://127.0.0.1:3005'
 
-
 // 导入 MUI 的样式
 import './lib/mui/css/mui.css'
 import './lib/mui/css/icons-extra.css'
 
+
+
+
 // 按需导入Mint-UI中的组件
-import { Header, Swipe, SwipeItem, Button } from 'mint-ui'
-Vue.component(Header.name, Header)
-Vue.component(Swipe.name, Swipe)
-Vue.component(SwipeItem.name, SwipeItem)
-Vue.component(Button.name, Button)
+// import { Header, Swipe, SwipeItem, Button,Lazyload } from 'mint-ui'
+// Vue.component(Header.name, Header)
+// Vue.component(Swipe.name, Swipe)
+// Vue.component(SwipeItem.name, SwipeItem)
+// Vue.component(Button.name, Button)
+// Vue.use(Lazyload);
+
+// 懒加载按需导入不能显示图标，所以这里全部导入MintUI
+import MintUI from 'mint-ui'
+Vue.use(MintUI)
+import 'mint-ui/lib/style.css'
+
+
+// 安装图片预览插件
+import VuePreview from 'vue-preview'
+Vue.use(VuePreview)
 
 
 

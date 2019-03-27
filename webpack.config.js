@@ -19,6 +19,10 @@ module.exports = {
 			template: path.join(__dirname, 'src/index.html'), //指定的模板文件路径
 			filename: 'index.html'  //设置生成的内存页面名称
 		}),
+		new htmlWebpackPlugin({
+			template: path.join(__dirname, 'src/aboutGood.html'), //指定的模板文件路径
+			filename: 'aboutGood.html'  //设置生成的内存页面名称
+		}),
 		new VueLoaderPlugin()
 
 	], 

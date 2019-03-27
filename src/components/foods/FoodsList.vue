@@ -1,15 +1,14 @@
 <template>
 	<div>
-
 		<ul class="mui-table-view">
 			<li class="mui-table-view-cell mui-media" v-for="item in foodslist" :key="item.id">
 				<router-link :to="'/home/foodinfo/' + item.id">
-					<img class="mui-media-object mui-pull-left" :src="item.img_url">
+					<img class="mui-media-object mui-pull-left" v-lazy="item.img_url">
 					<div class="mui-media-body">
-						<h1>{{ item.title }}</h1>
+						<h1 v-cloak>{{ item.title }}</h1>
 						<p class='mui-ellipsis'>
-							<span>上线时间:{{ item.add_time | dateFormat}}</span>
-							<span>好评率： {{ item.good_rate }}</span>
+							<span v-cloak>上线时间:{{ item.add_time | dateFormat}}</span>
+							<span v-cloak>好评率： {{ item.good_rate }}</span>
 						</p>
 					</div>
 				</router-link>
@@ -49,12 +48,32 @@
 <style lang="scss" scoped>
 	.mui-table-view {
 		li {
-			h1 { font-size: 14px; }
-			.mui-ellipsis {
-				font-size: 12px;
-				color: #757575FF;
+			height: 1.144rem;
+			.mui-media-object {
+			    line-height: .76805rem;
+			    max-width: .76805rem;
+			    height: .76805rem;
+			}
+
+			img[lazy=loading] {
+			  width: .6927rem;
+			  height: 5.12rem;
+			  margin: auto;
+			}
+			.mui-media-body{
+				height: .76805rem;
 				display: flex;
+				flex-direction: column;
 				justify-content: space-between;
+				h1 { 
+					font-size: .23895rem;
+				}
+				.mui-ellipsis {
+					font-size: .2048px;
+					color: #757575FF;
+					display: flex;
+					justify-content: space-between;
+				}
 			}
 		}
 	}

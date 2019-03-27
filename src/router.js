@@ -7,6 +7,9 @@ import ShopcarContainer from './components/tabbar/ShopcarContainer.vue'
 import SearchContainer from './components/tabbar/SearchContainer.vue'
 import FoodsList from './components/foods/FoodsList.vue'
 import FoodInfo from './components/foods/FoodInfo.vue'
+import FastFoodList from './components/fastfood/FastFoodList.vue'
+import BrandInfo from './components/fastfood/BrandInfo.vue'
+import GoodsInfo from './components/subcomponents/goods/goodsInfo.vue'
 
 
 // 创建路由对象
@@ -18,8 +21,10 @@ const router = new VueRouter({
 		{ path: '/shopcar', component: ShopcarContainer },
 		{ path: '/search', component: SearchContainer},
 		{ path: '/home/foodlist', component: FoodsList},
-		{ path: '/home/foodinfo/:id', component: FoodInfo}
-
+		{ path: '/home/foodinfo/:id', component: FoodInfo},
+		{ path: '/home/fastfoodlist', component: FastFoodList},
+		{ path: '/home/photoInfo/:id', component: BrandInfo},
+		{ path: '/home/goodsinfo/:id', component: GoodsInfo, name: 'goodsinfo'} //给这个路由命名
 	],
 	linkActiveClass: 'mui-active'  //覆盖默认的路由高亮的类，默认的类叫做router-link-active
 })

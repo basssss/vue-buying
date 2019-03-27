@@ -1,19 +1,15 @@
 <template>
-	<div>
+	<div class="home-container">
+		<mtheader></mtheader>
+
 		<!-- 轮播图区域 -->
-		<mt-swipe :auto="4000">
-			<!-- 在组件中，使用v-for循环，一定要使用key -->
-		  <mt-swipe-item v-for="item in lunbotuList" :key="item.url">
-		  	<!-- 用v-bind才能把item.img当作变量，否则就是普通字符串 -->
-		  	<img :src="item.img" alt="">
-		  </mt-swipe-item>
-		</mt-swipe>
+		<swiper :lunbotuList="lunbotuList" :isfull="true"></swiper>
 
 
 		<!-- 宫格 -->
 		<ul class="mui-table-view mui-grid-view mui-grid-9">
 		    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-		    	<router-link to="/home/foodlist">
+				<router-link to="/home/foodlist">
 		    		<img src="../../img/delicious.jpg" alt="">
 		            <div class="mui-media-body">美食</div>
 		    	</router-link>
@@ -25,10 +21,12 @@
 		        </a>
 		    </li>
 		    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-		    	<a href="#">
-		            <img src="../../img/fruit.jpg" alt="">
-		            <div class="mui-media-body">水果</div>
-		        </a>
+		    	<router-link to="home/fastfoodlist">
+		    		<img src="../../img/fastfood.jpg" alt="">
+		            <div class="mui-media-body">速食简餐</div>
+		    	</router-link>
+		            
+		        
 		    </li>
 		    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 		    	<a href="#">
@@ -61,11 +59,18 @@
 		        </a>
 		    </li>
 		</ul> 
+
+		<tabbar></tabbar>
 	</div>
 </template>
 
 <script>
 	import { Toast } from 'mint-ui'
+	import mtheader from '../subcomponents/header.vue'
+	import tabbar from '../subcomponents/tabbar.vue'
+
+	// 导入轮播图
+	import swiper from '../subcomponents/swiper.vue'
 
 	export default {
 		data() {
@@ -90,38 +95,42 @@
 					}
 				})
 			}
+		},
+		components: {
+			mtheader,
+			tabbar,
+			swiper
 		}
+
 	}
 </script>
 
 <style lang="scss" scoped>
-	.mint-swipe {
-		height: 100px;
-		.mint-swipe-item {
+	.home-container {
+		padding-top: .6827rem;
+		padding-bottom: .8534rem;
+
+		.mui-grid-view.mui-grid-9 {
+			background-color: white;
 			img {
 				width: 100%;
 				height: 100%;
 			}
+
+			.mui-media-body {
+				font-size: .22188rem;
+				line-height: .256rem;
+				height: .256rem;
+			}
+		}
+		.mui-grid-view.mui-grid-9 .mui-table-view-cell {
+			border: 0;
+
+		}
+		.mui-col-xs-4 {
+			width: 25%;
 		}
 	}
 	
 
-	.mui-grid-view.mui-grid-9 {
-		background-color: white;
-		img {
-			width: 100%;
-			height: 100%;
-		}
-
-		.mui-media-body {
-			font-size: 13px;
-		}
-	}
-	.mui-grid-view.mui-grid-9 .mui-table-view-cell {
-		border: 0px;
-
-	}
-	.mui-col-xs-4 {
-		width: 25%;
-	}
 </style>
