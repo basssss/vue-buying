@@ -10,6 +10,7 @@ import FoodInfo from './components/foods/FoodInfo.vue'
 import FastFoodList from './components/fastfood/FastFoodList.vue'
 import BrandInfo from './components/fastfood/BrandInfo.vue'
 import GoodsInfo from './components/subcomponents/goods/goodsInfo.vue'
+import ConfirmOrder from './components/ConfirmOrder.vue'
 
 
 // 创建路由对象
@@ -24,7 +25,8 @@ const router = new VueRouter({
 		{ path: '/home/foodinfo/:id', component: FoodInfo},
 		{ path: '/home/fastfoodlist', component: FastFoodList},
 		{ path: '/home/photoInfo/:id', component: BrandInfo},
-		{ path: '/home/goodsinfo/:id', component: GoodsInfo, name: 'goodsinfo'} //给这个路由命名
+		{ path: '/home/goodsinfo/:id', component: GoodsInfo, name: 'goodsinfo'}, //给这个路由命名
+		{ path: '/home/confirmOrder/:shop_id', component: ConfirmOrder, name: 'confirmorder'}
 	],
 	linkActiveClass: 'mui-active'  //覆盖默认的路由高亮的类，默认的类叫做router-link-active
 })

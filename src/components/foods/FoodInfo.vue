@@ -1,12 +1,16 @@
 <template>
 	<div class="foodinfo-container">
+		<!-- 头部 -->
+		<backHeader></backHeader>
+		
 		<div class="header">
+
 			<!-- 大标题 -->
 			<img :src="foodinfo.img_url" alt="">
 			<h3 class="title" v-cloak>{{ foodinfo.title }}</h3>
 			<p class="subtitle">
 				<span v-cloak>上线时间：{{ foodinfo.add_time | dateFormat }}</span>
-				<span v-cloak>好评率: {{ foodinfo.good_rate }}</span>
+				<span v-cloak>好评率: {{ foodinfo.good_rate }}%</span>
 			</p>
 		</div>
 
@@ -31,12 +35,11 @@
 
 		  	
 		  	<!-- 商家内容区 -->
-
 			<mt-tab-container-item id="3">
 				<div class="content" v-html="foodinfo.content"></div>
-			</mt-tab-container-item>
-		  
+			</mt-tab-container-item>	  
 		</mt-tab-container>
+
 	</div>
 </template>
 
@@ -47,13 +50,16 @@
 	import comment from '../subcomponents/comment.vue'
 	import goodslist from '../subcomponents/goods/goodList.vue'
 
+	// 导入返回组件
+	import backHeader from '../subcomponents/backHeader.vue'
+
 	export default {
 		data() {
 			return {
 				id: this.$route.params.id, //将URL 地址中传递过来的id值，挂载到data上，方便以后调用
 				foodinfo: {}, //美食对象
 				selected: "1",  //这里要是字符串1，才能选中第一项
-				top: ''
+				top: '',
 			}
 		},
 		mounted() {
@@ -66,7 +72,7 @@
 			this.getFoodInfo()
 		},
 		destroyed () {  //离开页面时要记得移除监听事件
-		  window.removeEventListener('scroll', this.handleScroll, true)
+		    window.removeEventListener('scroll', this.handleScroll, true)
 		},
 		methods: {
 			getFoodInfo(){ //获取美食详情
@@ -103,7 +109,8 @@
 		},
 		components: { //注册子组件
 			'comment-box': comment,
-			'goodslist-box': goodslist
+			'goodslist-box': goodslist,
+			backHeader
 		}
 	}
 </script>
@@ -111,7 +118,7 @@
 <!-- 去掉 scoped，.content 里面的img大小设置才能生效，由于已经把所有设置都包裹到了.foodinfo-container中，所以不会造成全局污染 -->
 <style lang="scss">
 	.foodinfo-container{
-		padding: 0 .068rem;
+		padding: 40px .068rem;
 		.header {
 			background-color: #F3F86C9A;
 			height: 2.56rem;
